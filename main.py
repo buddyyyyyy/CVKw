@@ -104,8 +104,8 @@ def check(sess_id: str, session: requests.session):
     for key, val in d.items():
         if val:
             flag = False
-            print("ServerID: %s Renew Failed!" % key)
-            TOKEN and notify_user(token=TOKEN, msg="ServerID: %s Renew Failed!" % key)
+            print("Renew Failed!")
+            TOKEN and notify_user(token=TOKEN, msg="Server Renew Failed!")
     if flag:
         print("ALL Work Done! Enjoy")
 
@@ -139,13 +139,13 @@ if __name__ == "__main__":
         for k, v in SERVERS.items():
             if v:
                 if not renew(sessid, s, passwd_list[i], k):
-                    print("ServerID: %s Renew Error!" % k)
-                    TOKEN and notify_user(token=TOKEN, msg="ServerID: %s Renew Error!" % k)
+                    print("Renew Error!")
+                    TOKEN and notify_user(token=TOKEN, msg="Server Renew Error!")
                 else:
-                    print("ServerID: %s has been successfully renewed!" % k)
-                    TOKEN and notify_user(token=TOKEN, msg="ServerID: %s has been successfully renewed!" % k)
+                    print("Server has been successfully renewed!")
+                    TOKEN and notify_user(token=TOKEN, msg="Server has been successfully renewed!")
             else:
-                print("ServerID: %s does not need to be renewed" % k)
+                print("Server does not need to be renewed")
         time.sleep(15)
         check(sessid, s)
         time.sleep(5)
